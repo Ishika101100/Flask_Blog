@@ -1,6 +1,8 @@
 from datetime import datetime
 from itsdangerous import TimedJSONWebSignatureSerializer as Serializer
 from flask import current_app
+from sqlalchemy.orm import load_only
+
 from flaskblog import db, login_manager
 from flask_login import UserMixin
 
@@ -44,3 +46,5 @@ class Post(db.Model):
 
     def __repr__(self):
         return f"Post('{self.title}', '{self.date_posted}')"
+
+

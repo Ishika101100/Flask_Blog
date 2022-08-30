@@ -1,12 +1,15 @@
 from flask import render_template, url_for, flash, redirect, request, Blueprint
 from flask_login import login_user, current_user, logout_user, login_required
-from flaskblog import db, bcrypt
+from sqlalchemy.orm import joinedload, Load, lazyload
+
+from flaskblog import db, bcrypt, fake
 from flaskblog.models import User, Post
 from flaskblog.users.forms import (RegistrationForm, LoginForm, UpdateAccountForm,
                                    RequestResetForm, ResetPasswordForm)
 from flaskblog.users.utils import save_picture, send_reset_email
 
 users = Blueprint('users', __name__)
+
 
 
 @users.route("/register", methods=['GET', 'POST'])
@@ -30,7 +33,7 @@ def login():
         return redirect(url_for('main.home'))
     form = LoginForm()
     if form.validate_on_submit():
-        user = User.query.filter_by(email=form.email.data).first()
+        user = db.session.query(User).filter_by(email=form.email.data).first() #is_authenticated(), is_active(), is_anonymous(), and get_id ().
         if user and bcrypt.check_password_hash(user.password, form.password.data):
             login_user(user, remember=form.remember.data)
             next_page = request.args.get('next')
