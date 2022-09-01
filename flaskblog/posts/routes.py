@@ -1,6 +1,7 @@
 from flask import (render_template, url_for, flash,
                    redirect, request, abort, Blueprint)
 from flask_login import current_user, login_required
+
 from flaskblog import db
 from flaskblog.models import Post
 from flaskblog.posts.forms import PostForm
@@ -24,8 +25,13 @@ def new_post():
 
 @posts.route("/post/<int:post_id>")
 def post(post_id):
-    post = Post.query.get_or_404(post_id)
-    return render_template('post.html', title=post.title, post=post)
+    post_obj = Post.query.filter_by(id=post_id).first()
+    return render_template('post.html', title=post_obj.title, post=post_obj)
+
+
+def post_queries(post_id):
+    Post.query.get_or_404(post_id)
+    Post.query.filter_by(id=post_id).exists()
 
 
 @posts.route("/post/<int:post_id>/update", methods=['GET', 'POST'])

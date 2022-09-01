@@ -5,18 +5,13 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="62dc4ba1-b685-4413-a8bd-11ed9457a975" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/flaskblog/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/flaskblog/__init__.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/flaskblog/config.py" beforeDir="false" afterPath="$PROJECT_DIR$/flaskblog/config.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/readme.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/flaskblog/main/routes.py" beforeDir="false" afterPath="$PROJECT_DIR$/flaskblog/main/routes.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/flaskblog/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/flaskblog/models.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/flaskblog/posts/__init__.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/flaskblog/posts/forms.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/flaskblog/posts/routes.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/flaskblog/templates/create_post.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/flaskblog/templates/post.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/flaskblog/templates/user_posts.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/flaskblog/posts/routes.py" beforeDir="false" afterPath="$PROJECT_DIR$/flaskblog/posts/routes.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/flaskblog/templates/home.html" beforeDir="false" afterPath="$PROJECT_DIR$/flaskblog/templates/home.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/flaskblog/users/routes.py" beforeDir="false" afterPath="$PROJECT_DIR$/flaskblog/users/routes.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/run.py" beforeDir="false" afterPath="$PROJECT_DIR$/run.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -44,13 +39,14 @@
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "WebServerToolWindowFactoryState": "false",
-    "last_opened_file_path": "/home/ishika/python_training/submission/ScrapDataFromStackOverflow",
+    "last_opened_file_path": "/home/ishika/python_training/submission/Event_Management_System",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.stylelint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
     "node.js.selected.package.stylelint": "",
-    "node.js.selected.package.tslint": "(autodetect)"
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm"
   }
 }]]></component>
   <component name="RunManager">
@@ -91,7 +87,8 @@
       <workItem from="1655099686098" duration="5264000" />
       <workItem from="1655141809910" duration="59000" />
       <workItem from="1661492540253" duration="17470000" />
-      <workItem from="1661746277705" duration="25651000" />
+      <workItem from="1661746277705" duration="57953000" />
+      <workItem from="1662011286675" duration="7109000" />
     </task>
     <servers />
   </component>

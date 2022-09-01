@@ -2,7 +2,7 @@ from flask import render_template, request, Blueprint
 from sqlalchemy.orm import lazyload, load_only, defer
 
 from flaskblog import db, fake
-from flaskblog.models import Post
+from flaskblog.models import Post, User
 
 main = Blueprint('main', __name__)
 
@@ -11,11 +11,9 @@ main = Blueprint('main', __name__)
 @main.route("/home")
 def home():
     page = request.args.get('page', 1, type=int)
-    # posts= Post.query.order_by(Post.date_posted.desc()).paginate(page=page, per_page=5)
-    post2=Post.query.count()
-    post3=Post.query.all()
-    return "<body><h1>data"+str(post2)+str(len(post3))+"</body></h1>"
-    # return render_template('home.html', posts=posts)
+    posts= Post.query.order_by(Post.date_posted.desc()).paginate(page=page, per_page=5)
+    # return "<body><h1>data"+str(post2)+str(len(post3))+"</body></h1>"
+    return render_template('home.html', posts=posts)
 
 @main.route('/insert_data_with_bulk')
 def insert_with_bulk():
@@ -33,6 +31,7 @@ def insert_with_bulk():
     db.session.commit()
     return "<body><h1>data  added</body></h1>"
 
+
 @main.route('/insert_data_without_bulk')
 def insert_without_bulk():
     """
@@ -47,6 +46,13 @@ def insert_without_bulk():
         db.session.commit()
     return "<body><h1>data  added</h1></body>"
 
+@main.route('/check_relationship')
+def check_relationship():
+    persons = User.query.all()
+    for person in persons:  # Not Evaluate the query use cache
+        # print(person.posts, "id")
+        return f"<body><p>{person.posts}</p></body>"
+
 def post_queries():
     Post.query.options(load_only("title", "date_posted","content","user_id")).order_by(Post.date_posted.desc())
     Post.query.with_entities(Post.title,Post.date_posted,Post.content,Post.user_id).order_by(Post.date_posted.desc())
@@ -55,11 +61,13 @@ def post_queries():
     """
     Post.query.options(defer("title")).order_by(Post.date_posted.desc())
     """
-    This feature is useful when one wants to avoid loading a large text or binary field into memory when it's not needed
+    defer is useful when one wants to avoid loading a large text or binary field into memory when it's not needed
     """
+    Post.query.count()  # returns int
+    """count() will take less time for execution as query is executed at database level and returns int value from database"""
 
-
-
+    len(Post.query.all())  # returns list
+    """len(all())will take more time as it returns a list of all details of table and then calculates length of list"""
 
 
 @main.route("/about")

@@ -33,7 +33,7 @@ def login():
         return redirect(url_for('main.home'))
     form = LoginForm()
     if form.validate_on_submit():
-        user = db.session.query(User).filter_by(email=form.email.data).first() #is_authenticated(), is_active(), is_anonymous(), and get_id ().
+        user = db.session.query(User).filter_by(email=form.email.data).first()
         if user and bcrypt.check_password_hash(user.password, form.password.data):
             login_user(user, remember=form.remember.data)
             next_page = request.args.get('next')
